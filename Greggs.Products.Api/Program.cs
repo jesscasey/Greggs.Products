@@ -9,6 +9,8 @@ public class Program
     {
         CreateHostBuilder(args).Build().Run();
         using HttpResponseMessage response = await httpClient.GetAsync("/product");
+        Console.WriteLine(LatestItems(response));
+        Console.WriteLine(ToEuros(response));
     }
 
     public static IHostBuilder CreateHostBuilder(string[] args) =>
