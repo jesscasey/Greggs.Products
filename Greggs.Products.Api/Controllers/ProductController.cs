@@ -33,7 +33,8 @@ public class ProductController : ControllerBase
         return Enumerable.Range(1, pageSize).Select(index => new Product
             {
                 PriceInPounds = rng.Next(0, 10),
-                Name = Products[rng.Next(Products.Length)]
+                Name = Products[rng.Next(Products.Length)],
+                AvailableFrom = DateTime.Now.AddDays(rng.Next(-30, 0)).ToString("yyyy-MM-dd")
             })
             .ToArray();
     }
