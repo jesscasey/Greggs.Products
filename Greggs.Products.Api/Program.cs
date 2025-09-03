@@ -19,4 +19,17 @@ public class Program
     {
         return products.OrderByDescending(p => p.AvailableFrom);
     }
+
+    public IEnumerable<Product> ToEuros(IEnumerable<Product> products)
+    {
+        foreach (var product in products)
+        {
+            yield return new Product
+            {
+                Name = product.Name,
+                PriceInEuros = product.PriceInPounds * 1.11m,
+                AvailableFrom = product.AvailableFrom
+            };
+        }
+    }
 }
